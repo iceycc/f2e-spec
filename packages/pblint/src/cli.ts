@@ -32,14 +32,14 @@ const installDepsIfThereNo = async () => {
   if (!fs.existsSync(nodeModulesPath) && lintConfigFiles.length > 0) {
     const npm = await npmType;
     log.info(`使用项目 Lint 配置，检测到项目未安装依赖，将进行安装（执行 ${npm} install）`);
-    execSync(`cd ${cwd} && ${npm} i`);
+    execSync(`cd ${cwd} && ${npm} install`);
   }
 };
 
 program
   .version(PKG_VERSION)
   .description(
-    `${PKG_NAME} 是《阿里巴巴前端规约》的配套 Lint 工具，提供简单的 CLI 和 Node.js API，让项目能够一键接入、一键扫描、一键修复、一键升级，并为项目配置 git commit 卡点，降低项目实施规约的成本`,
+    `${PKG_NAME} 是《滴滴IBG外卖前端规约》的配套 Lint 工具，提供简单的 CLI 和 Node.js API，让项目能够一键接入、一键扫描、一键修复、一键升级，并为项目配置 git commit 卡点，降低项目实施规约的成本`,
   );
 
 program

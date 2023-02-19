@@ -14,7 +14,8 @@ export enum UNICODE {
 /**
  * 包名
  */
-export const PKG_NAME: string = pkg.name;
+export const PKG_FULL_NAME: string = pkg.name;
+export const PKG_NAME: string = pkg.name.split('/').pop();
 
 /**
  * 包版本号
@@ -34,28 +35,20 @@ export const PROJECT_TYPES: Array<{ name: string; value: string }> = [
     value: 'typescript',
   },
   {
-    name: 'React 项目（JavaScript）',
-    value: 'react',
-  },
-  {
-    name: 'React 项目（TypeScript）',
-    value: 'typescript/react',
-  },
-  {
-    name: 'Rax 项目（JavaScript）',
-    value: 'rax',
-  },
-  {
-    name: 'Rax 项目（TypeScript）',
-    value: 'typescript/rax',
-  },
-  {
     name: 'Vue 项目（JavaScript）',
     value: 'vue',
   },
   {
     name: 'Vue 项目（TypeScript）',
     value: 'typescript/vue',
+  },
+  {
+    name: 'React 项目（JavaScript）',
+    value: 'react',
+  },
+  {
+    name: 'React 项目（TypeScript）',
+    value: 'typescript/react',
   },
   {
     name: 'Node.js 项目（JavaScript）',

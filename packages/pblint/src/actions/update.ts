@@ -2,15 +2,16 @@ import { execSync } from 'child_process';
 import ora from 'ora';
 import log from '../utils/log';
 import npmType from '../utils/npm-type';
-import { PKG_NAME, PKG_VERSION } from '../utils/constants';
+import {PKG_FULL_NAME, PKG_NAME, PKG_VERSION} from '../utils/constants';
 
 /**
  * 检查最新版本号
  */
 const checkLatestVersion = async (): Promise<string | null> => {
   const npm = await npmType;
-  const latestVersion = execSync(`${npm} view ${PKG_NAME} version`).toString('utf-8').trim();
-
+  const directive = `${npm} ${npm === 'yarn' ? 'info' : 'view'} ${PKG_NAME} version`;
+  const latestVersion = execSync(directive).toString('utf-8').trim();
+  console.log(latestVersion);
   if (PKG_VERSION === latestVersion) return null;
 
   const compareArr = PKG_VERSION.split('.').map(Number);
@@ -40,11 +41,11 @@ export default async (install = true) => {
     checking.stop();
 
     if (latestVersion && install) {
-      const update = ora(`[${PKG_NAME}] 存在新版本，将升级至 ${latestVersion}`);
+      const update = ora(`[${PKG_FULL_NAME}] 存在新版本，将升级至 ${latestVersion}`);
 
       update.start();
-
-      execSync(`${npm} i -g ${PKG_NAME}`);
+      const directive = `${npm} i -g ${PKG_FULL_NAME}`;
+      execSync(directive);
 
       update.stop();
     } else if (latestVersion) {

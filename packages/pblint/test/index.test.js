@@ -1,8 +1,8 @@
 const path = require('path');
 const fs = require('fs-extra');
-const f2elint = require('../lib/index');
+const pblint = require('../lib/index');
 
-const { init } = f2elint;
+const { init } = pblint;
 
 describe('init', () => {
   const templatePath = path.resolve(__dirname, './fixtures/template/init');
@@ -26,7 +26,7 @@ describe('init', () => {
     const pkg = require(`${outputPath}/package.json`);
     const settings = require(`${outputPath}/.vscode/settings.json`);
 
-    expect(pkg.scripts['f2elint-scan']).toBe('f2elint scan');
+    expect(pkg.scripts['pblint-scan']).toBe('pblint scan');
     expect(settings['editor.defaultFormatter']).toBe('esbenp.prettier-vscode');
     expect(settings['eslint.validate'].includes('233')).toBeTruthy();
     expect(settings.test).toBeTruthy();

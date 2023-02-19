@@ -14,7 +14,7 @@
 
 其他：
 - Node.js API 变更：
-  - scan 支持 config 参数，优先级高于 f2elint.config.js
+  - scan 支持 config 参数，优先级高于 pblint.config.js
   - config 增加 enableESLint 参数，以支持开关 eslint 扫描
   - config 增加 eslintOptions、stylelintOptions 和 markdownlintOptions
 - 去掉 `.eslintrc` 中已废弃的 `prettier/react`, `prettier/typescript` 和 `prettier/vue`
@@ -36,7 +36,7 @@
 
 ## 2.2.0 (2022-01-06)
 
-- 运行 `f2elint-fix` 时提前执行 Prettier 格式化，避免 Prettier 已修复的问题出现在 ESLint/Stylelint 结果中
+- 运行 `pblint-fix` 时提前执行 Prettier 格式化，避免 Prettier 已修复的问题出现在 ESLint/Stylelint 结果中
 - 修复 Prettier 命令运行失败的问题（Command failed with ENOENT 被 catch 了没有输出）改用 Node API 模式
 
 ## 2.1.0 (2021-12-17)
@@ -90,7 +90,7 @@
 
 ### 修复
 
-- `f2elint init` 不再向 package.json 写入 devDependencies.eslint-config-prettier
+- `pblint init` 不再向 package.json 写入 devDependencies.eslint-config-prettier
 
 ## 1.0.2 (2021-02-04)
 
@@ -102,8 +102,8 @@
 
 ### 新增
 
-- 增加对 Prettier 的集成，`f2elint init` 时用户可选择使用 Prettier 格式化代码
-- 新增 `f2elint commit-file-scan` 和 `f2elint commit-msg-scan` 两个命令供 husky 调用，移除了 lint-staged 依赖
+- 增加对 Prettier 的集成，`pblint init` 时用户可选择使用 Prettier 格式化代码
+- 新增 `pblint commit-file-scan` 和 `pblint commit-msg-scan` 两个命令供 husky 调用，移除了 lint-staged 依赖
 
 ### 优化
 
@@ -114,7 +114,7 @@
 
 ### 修复
 
-- f2elint：修复找不到 `markdownlint` 的拓展文件（[#3](https://github.com/alibaba/f2e-spec/issues/3)）
+- pblint：修复找不到 `markdownlint` 的拓展文件（[#3](https://github.com/alibaba/f2e-spec/issues/3)）
 
 ## 0.4.3 (2020-12-03)
 
@@ -159,7 +159,7 @@
 ### 变更
 
 - init 写入的 `.vscode/settings.json` 中增加保存自动格式化的配置，并增加 prettier 作为 defaultFormatter
-- scan 根据项目内有无 eslint 和 stylelint 配置文件判断使用项目的配置文件还是 f2elint 默认配置进行扫描。若使用项目的，在未安装依赖时会帮其安装（执行 npm i）。若使用项目配置扫描失败，则使用默认配置扫描
+- scan 根据项目内有无 eslint 和 stylelint 配置文件判断使用项目的配置文件还是 pblint 默认配置进行扫描。若使用项目的，在未安装依赖时会帮其安装（执行 npm i）。若使用项目配置扫描失败，则使用默认配置扫描
 
 ## 0.1.5 (2020-10-23)
 
@@ -188,7 +188,7 @@
 
 ### 修复
 
-- 兼容在 `package.json` 配置 eslintConfig 和 stylelint 的非 f2elint 项目运行 scan 和 fix 命令
+- 兼容在 `package.json` 配置 eslintConfig 和 stylelint 的非 pblint 项目运行 scan 和 fix 命令
 
 ## 0.1.2 (2020-10-10)
 
@@ -200,7 +200,7 @@
 
 ### 修复
 
-- 修复 devDependencies 中的 f2elint 版本
+- 修复 devDependencies 中的 pblint 版本
 
 ## 0.1.0 (2020-09-25)
 
